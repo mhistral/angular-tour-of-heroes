@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
-import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-heroes',
@@ -17,15 +16,10 @@ export class HeroesComponent implements OnInit {
   selectedHero?: Hero;
 
   // When Angular creates a HeroesComponent, the Dependency Injection system sets the heroService parameter to the singleton instance of HeroService.
-  constructor(private heroService: HeroService,  private messageService: MessageService) { }
+  constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
       this.getHeroes();
-  }
-
-  // once onSelect is triggered, we set the selectedHero to passed hero parameter
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
   }
 
   getHeroes(): void {
